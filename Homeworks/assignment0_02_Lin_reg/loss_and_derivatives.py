@@ -87,7 +87,7 @@ class LossAndDerivatives:
         """
 
         # YOUR CODE HERE
-        return 2 * (X.T @ (X @ w - Y)) / (Y.shape[0] * Y.shape[1])
+        return 2 * (X.T.dot((X.dot(w) - Y))) / (Y.shape[0] * Y.shape[1])
 
     @staticmethod
     def mae_derivative(X, Y, w):
@@ -106,7 +106,7 @@ class LossAndDerivatives:
         """
 
         # YOUR CODE HERE
-        return X.T @ ((X @ w - Y)/np.abs(X @ w - Y)) / (Y.shape[0] * Y.shape[1])
+        return X.T.dot(((X.dot(w) - Y)/np.abs(X.dot(w) - Y))) / (Y.shape[0] * Y.shape[1])
 
     @staticmethod
     def l2_reg_derivative(w):
